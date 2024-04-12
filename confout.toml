@@ -1,0 +1,19 @@
+Version = "0.1"
+
+[OneHandedMap]
+
+  [[OneHandedMap.Bindings]]
+    TapCode = 3
+    [OneHandedMap.Bindings.Action]
+      ActionType = 0
+      Keypress = 32
+
+  [[OneHandedMap.Bindings]]
+    TapCode = 4
+    [OneHandedMap.Bindings.Action]
+      ActionType = 0
+      Keypress = 33
+
+[General]
+  SupportTwoTaps = true
+  ComboDelay = 350

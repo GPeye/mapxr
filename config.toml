@@ -1,0 +1,114 @@
+Version = "0.1"
+
+[General]
+SupportMultipleTaps = true
+MultiTapWindowDuration = 250
+ComboDelay = 350
+TapDevice1Address = "E6:A3:CA:BE:50:0F"
+TapDevice2Address = "D7:37:6C:F2:B5:EE"
+
+[OneHandedMap]
+[[OneHandedMap.Layers]]
+Name = "baselayer"
+Default = true
+SingleTapMap = [
+  # One Finger Down
+  {TapCode="●○○○○", Action={type="KeyPress", Value="A"}},
+  {TapCode="○●○○○", Action={type="KeyPress", Value="E"}},
+  {TapCode="○○●○○", Action={type="KeyPress", Value="I"}},
+  {TapCode="○○○●○", Action={type="KeyPress", Value="O"}},
+  {TapCode="○○○○●", Action={type="KeyPress", Value="U"}},
+
+  {TapCode="○○●●●", Action={type="KeyHold", Value="CTRL", Duration=500}},
+  {TapCode="○●●●○", Action={type="MultiKeyHold", Value="CTRL ALT SHIFT SUPER", Duration=500}},
+  {TapCode="○●●○●", Action={type="Modifier", Value="ALT"}}, # only affects the next key
+  # Writes "TAP!" waits 500ms and then writes "<3"
+  {TapCode="○●○●●", Action={type="Macro", Value="_press SHIFT;_tap T;_tap A;_tap P;tap 1;_wait 500;_tap SPACE;_tap COMMA;_release SHIFT;_tap3"}},
+  {TapCode="●●○○●", Action={type="Command", Value="/bin/bash %HOME/mydir/run.sh"}}, 
+  {TapCode="●●●○○", Action={type="TempLayerSwitch", Value="shiftlayer"}}
+]
+
+[[OneHandedMap.Layers]]
+Name = "shiftlayer"
+SingleTapMap = [
+  # One Finger Down
+  {TapCode = "●○○○○", Action={type="MultiKeyPress", Value="SHIFT A"}},
+  {TapCode = "○●○○○", Action={type="MultiKeyPress", Value="SHIFT E"}},
+  {TapCode = "○○●○○", Action={type="MultiKeyPress", Value="SHIFT I"}},
+  {TapCode = "○○○●○", Action={type="MultiKeyPress", Value="SHIFT O"}},
+  {TapCode = "○○○○●", Action={type="MultiKeyPress", Value="SHIFT U"}},
+  {TapCode = "●○○○●", Action={type="MultiKeyPress", Value="H E L L O SPACE W O R L D !"}},
+]
+
+[TwoHandedMap]
+[[TwoHandedMap.Layers]]
+Name = "base"
+Default = true
+SingleTapMap = [
+  # One Finger Down
+  {TapCode = "○○○○○ ●○○○○", Action={type="KeyPress", Value="A"}},
+  {TapCode = "○○○○○ ○●○○○", Action={type="KeyPress", Value="E"}},
+  {TapCode = "○○○○○ ○○●○○", Action={type="KeyPress", Value="I"}},
+  {TapCode = "○○○○○ ○○○●○", Action={type="KeyPress", Value="O"}},
+  {TapCode = "○○○○○ ○○○○●", Action={type="KeyPress", Value="U"}},
+  {TapCode = "●●●●● ●●●●●", Action={type="ToggleStandby", Value=""}},
+
+  {TapCode = "○○○○○ ●●●○○", Action={type="LayerSwitch", Value="shift"}}
+]
+
+
+Bindings = [
+  # One Finger Down
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●○○○○
+  {TapCode = 2, Action={ActionType=0, Keypress=18}}, # ○●○○○
+  {TapCode = 4, Action={ActionType=0, Keypress=23}}, # ○○●○○
+  {TapCode = 8, Action={ActionType=0, Keypress=24}}, # ○○○●○
+  {TapCode = 16, Action={ActionType=0, Keypress=22}}, # ○○○○●
+
+  # Two Fingers Together
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●●○○○
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ○●●○○
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ○○●●○
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ○○○●●
+
+  # Two Fingers Skipping One
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●○●○○
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ○●○●○
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ○○●○●
+
+  # Two Fingers Skipping Two
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●○○●○
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ○●○○●
+
+  # Looks Like Y and W
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●○○○●
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●○●○●
+
+  # One Finger Up
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ○●●●●
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●○●●●
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●●○●●
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●●●○●
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●●●●○
+
+  # One Finger Chasing Two
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●○●●○
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ○●○●●
+
+  # Two Fingers Chasing One
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●●○●○
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ○●●○●
+
+  # Three Fingers Skipping Two
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●○○●●
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●●○○●
+
+  # Three Fingers Together
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ●●●○○
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ○●●●○
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}, # ○○●●●
+
+  # All Fingers Together
+  {TapCode = 1, Action={ActionType=0, Keypress=30}}  # ●●●●●
+]
+
